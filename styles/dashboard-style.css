@@ -20,56 +20,34 @@ body {
     width: 100%;
 }
 
-/* Toggle Button (for smaller screens) */
-.toggle-btn {
-    background-color: #6b5d53; /* Burnt orange - autumnal */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 20; /* Above the sidebar when toggled */
-    display: none; /* Hidden on larger screens */
-}
-
-@media (max-width: 768px) {
-    .toggle-btn {
-        display: block;
-    }
-}
 
 /* Sidebar */
 .sidebar {
     background-color: #e6a756; /* Warm orange - autumnal */
     color: #5c4033; /* Deep brown text */
     width: 250px;
-    padding-top: 20px;
     transition: transform 0.3s ease-in-out;
     transform: translateX(0);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 10;
-    border-right: 2px solid #d98850; /* Subtle border */
 }
 
 .sidebar.hidden {
-    transform: translateX(-250px);
+    transform: translateX(-215px);
 }
 
 .sidebar-header {
-    padding: 15px 20px;
+    padding: 5%;
     text-align: left; /* Align close button and text */
     border-bottom: 1px solid #d98850;
     margin-bottom: 15px;
     display: flex;
+    overflow-wrap: anywhere;
     align-items: center;
     justify-content: space-between;
 }
@@ -82,17 +60,21 @@ body {
 
 /* Close Button (inside sidebar) */
 .close-btn {
-    background: none;
-    border: none;
+    background: #e6a756;
+    border:none;
+    border-right: #f9c581 double 2px;
+    border-left: #f9c58191 dashed 2px;
     color: #5c4033;
     font-size: 1.5rem;
     cursor: pointer;
     padding: 5px;
-    margin-left: auto; /* Push to the right */
+
+    transition: 0.1s ease-in;
 }
 
 .close-btn:hover {
-    color: #3a2c2a;
+    color: #f9c581;
+    background-color: #3a2c2a;
 }
 
 .sidebar-nav ul {
@@ -120,7 +102,7 @@ body {
 .sidebar-footer {
     padding: 15px 20px;
     text-align: center;
-    margin-top: auto;
+    margin-top: 70vh;
     border-top: 1px solid #d98850;
 }
 
@@ -143,13 +125,13 @@ body {
 #content {
     flex-grow: 1;
     padding: 20px;
-    padding-left: 270px; /* Adjust for sidebar width */
+    padding-left: 300px; /* Adjust for sidebar width */
     transition: padding-left 0.3s ease-in-out;
     background-color: #ffda9f; /* Match body background */
 }
 
 #content.sidebar-hidden {
-    padding-left: 20px;
+    padding-left: 50px;
 }
 
 /* Autumn Scene (Example - replace with your actual assets) */
@@ -168,7 +150,7 @@ body {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .sidebar {
-        transform: translateX(-250px);
+        transform: translateX(-215px);
         height: 100%;
     }
 
@@ -177,7 +159,7 @@ body {
     }
 
     #content {
-        padding-left: 20px;
+        padding-left: 50px;
     }
 
     #content.sidebar-hidden {
