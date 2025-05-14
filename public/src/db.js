@@ -1,5 +1,5 @@
 
-import { supabase } from "./supabase/supabaseClient";
+import { supabase } from "./supabase/supabaseClient.js";
 
 // get all the books from supabase
 async function getBooks() {

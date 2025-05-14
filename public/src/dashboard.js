@@ -1,4 +1,4 @@
-import { supabase } from "./supabase/supabaseClient";
+import { supabase } from "./supabase/supabaseClient.js";
 
 (async () => {
     // v2: get the current session (includes user)
