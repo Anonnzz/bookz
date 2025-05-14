@@ -1,4 +1,4 @@
-import { supabase } from './supabase/supabaseClient.js';
+import { supabase } from '/supabase/supabaseClient';
 
 //
 // — LOGIN HANDLER —
