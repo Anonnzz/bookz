@@ -1,168 +1,83 @@
-/* Global Reset + Font */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
-    font-family: 'Arial', sans-serif; /* A clean, readable font */
-    background-color: #ffda9f; /* Light beige background - cozy */
-    margin: 0;
-    padding: 0;
+    font-family: 'Arial', sans-serif;
     display: flex;
-    min-height: 100vh;
-    align-items: stretch; /* Make sidebar and content the same height */
-}
-
-.container {
-    display: flex;
-    width: 100%;
-}
-
-
-/* Sidebar */
-.sidebar {
-    background-color: #e6a756; /* Warm orange - autumnal */
-    color: #5c4033; /* Deep brown text */
-    width: 250px;
-    transition: transform 0.3s ease-in-out;
-    transform: translateX(0);
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
-}
-
-.sidebar.hidden {
-    transform: translateX(-215px);
-}
-
-.sidebar-header {
-    padding: 5%;
-    text-align: left; /* Align close button and text */
-    border-bottom: 1px solid #d98850;
-    margin-bottom: 15px;
-    display: flex;
-    overflow-wrap: anywhere;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-}
-
-#current-user-name {
-    display: flex;
-    font-size: 1.3rem;
+    height: 100vh;
+    background-color: #ffda9f; /* Light beige - autumnal */
     margin: 0;
 }
 
-/* Close Button (inside sidebar) */
-.close-btn {
-    background: #e6a756;
-    border:none;
-    border-right: #f9c581 double 2px;
-    border-left: #f9c58191 dashed 2px;
-    color: #5c4033;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 5px;
-
-    transition: 0.1s ease-in;
+.auth-container {
+    width: 300px; /* Slightly wider for better spacing */
+    padding: 30px;
+    background-color: #e6a756; /* Warm orange - autumnal */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #5c4033; /* Deep brown text */
 }
 
-.close-btn:hover {
-    color: #f9c581;
-    background-color: #3a2c2a;
-}
-
-.sidebar-nav ul {
-    list-style: none;
-    padding: 0 10px;
-    margin: 0;
-}
-
-.sidebar-nav ul li a {
-    display: block;
-    padding: 12px 15px;
-    text-decoration: none;
-    color: #5c4033;
-    transition: background-color 0.2s ease-in-out;
-    border-radius: 5px;
-    margin-bottom: 5px;
-    background-color: #f2b66d; /* Lighter orange for links */
-}
-
-.sidebar-nav ul li a:hover {
-    background-color: #d98850;
-    color: #fff;
-}
-
-.sidebar-footer {
-    padding: 15px 20px;
+h2 {
     text-align: center;
-    margin-top: 70vh;
-    border-top: 1px solid #d98850;
+    margin-bottom: 20px;
+    color: #a64d3d; /* Rusty brown for headings */
 }
 
-.sidebar-footer button {
-    background-color: #a64d3d; /* Rusty brown for logout */
-    color: white;
+form {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+form.active {
+    display: flex;
+}
+
+input[type="email"],
+input[type="password"] {
+    padding: 12px;
+    border: 1px solid #d98850; /* Burnt orange border */
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #5c4033;
+    background-color: #fdf7ec; /* Light cream input background */
+}
+
+button {
+    cursor: pointer;
+    padding: 12px 20px;
     border: none;
     border-radius: 5px;
-    padding: 10px 15px;
     font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
+    color: white;
+    background-color: #d98850; /* Burnt orange button */
+    transition: background-color 0.3s ease;
 }
 
-.sidebar-footer button:hover {
-    background-color: #8c3d30;
+button:hover {
+    background-color: #b36a3d; /* Darker burnt orange on hover */
 }
 
-/* Main Content */
-#content {
-    flex-grow: 1;
-    padding: 20px;
-    padding-left: 300px; /* Adjust for sidebar width */
-    transition: padding-left 0.3s ease-in-out;
-    background-color: #ffda9f; /* Match body background */
+p {
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 15px;
 }
 
-#content.sidebar-hidden {
-    padding-left: 50px;
+a {
+    color: #a64d3d; /* Rusty brown for links */
+    text-decoration: none;
+    font-weight: bold;
 }
 
-/* Autumn Scene (Example - replace with your actual assets) */
-.autumn-scene {
-    margin-top: 20px;
-    display: flex;
-    gap: 20px;
-    align-items: center;
+a:hover {
+    text-decoration: underline;
 }
 
-.autumn-scene img {
-    max-width: 100px;
-    height: auto;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .sidebar {
-        transform: translateX(-215px);
-        height: 100%;
-    }
-
-    .sidebar.hidden {
-        transform: translateX(0);
-    }
-
-    #content {
-        padding-left: 50px;
-    }
-
-    #content.sidebar-hidden {
-        padding-left: 270px;
-    }
+#login-status,
+#register-status {
+    color: #a64d3d; /* Rusty brown for status messages */
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 10px;
 }
